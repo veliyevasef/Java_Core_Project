@@ -28,14 +28,17 @@ public class StudentManagementApp {
                 switch (choice) {
 
                     case 1:
-                        String id ;
+                       // sc.nextInt(); // choice-dan sonra buffer təmizlənir
+
+                        int id = 0;
+
                         while (true) {
-                            System.out.print("Ferdi nomresi (ID): ");
-                            id = sc.nextLine();
-                            sc.nextLine();
+                            System.out.print("ID nomresini daxil edin: ");
+                            id = sc.nextInt();
+                             sc.nextLine();
 
                             try {
-                                if (service.findById(Integer.parseInt(id)) != null) {
+                                if (service.findById(id) != null) {
                                     System.out.println("Bu ID artiq movcuddur. Bashqa ID daxil edin.");
                                     continue;
                                 }
@@ -47,9 +50,10 @@ public class StudentManagementApp {
                                 Student temp = new Student(id, "Temp", "Temp", 20, "test@mail.com", 0);
                                 break;
                             } catch (IllegalArgumentException e) {
-                                System.out.println("Xeta: " + e.getMessage());
+                                System.out.println("Error: " + e.getMessage());
                             }
                         }
+
 
                         String name;
                         while (true) {
