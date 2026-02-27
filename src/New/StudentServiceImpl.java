@@ -10,10 +10,10 @@ public class StudentServiceImpl implements IStudentService {
     public void addStudent(Student student) {
 
         if (students.containsKey(student.getId()))
-            throw new RuntimeException("ID already exists");
+            throw new RuntimeException("ID nomresi artiq movcuddur");
 
         if (emails.contains(student.getEmail()))
-            throw new RuntimeException("Email already exists");
+            throw new RuntimeException("Email artiq movcuddur");
 
         students.put(student.getId(), student);
         emails.add(student.getEmail());
@@ -25,7 +25,7 @@ public class StudentServiceImpl implements IStudentService {
         Student removed = students.remove(id);
 
         if (removed == null)
-            throw new RuntimeException("Student not found");
+            throw new RuntimeException("Telebe movcud deyil");
 
         emails.remove(removed.getEmail());
     }
@@ -36,7 +36,7 @@ public class StudentServiceImpl implements IStudentService {
         Student student = students.get(id);
 
         if (student == null)
-            throw new RuntimeException("Student not found");
+            throw new RuntimeException("Telebe movcud deyil");
 
         return student;
     }
