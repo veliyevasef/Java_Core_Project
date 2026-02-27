@@ -8,6 +8,7 @@ public class StudentManagementApp {
         Scanner sc = new Scanner(System.in);
         IStudentService service = new StudentServiceImpl();
 
+
         while (true) {
 
             System.out.println("\n====== Student Management System =======");
