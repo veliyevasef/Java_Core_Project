@@ -15,7 +15,7 @@ public class Student {
     private static final Pattern EMAIL_PATTERN =
             Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
 
-    public Student(int id, String name, String surname,
+    public Student(String id, String name, String surname,
                    int age, String email, double grade) {
 
         setId(id);
@@ -31,11 +31,25 @@ public class Student {
         return id;
     }
 
-    public void setId(int id) {
-        if (id < 0)
-            throw new IllegalArgumentException("ID nomresi musbet reqem olmalidir.");
+   // public void setId(int id) {
+  //      if (id < 0)
+  //          throw new IllegalArgumentException("ID nomresi musbet reqem olmalidir.");
 
-        this.id = id;
+  //      this.id = id;
+  //  }
+
+    public void setId(String idStr) {
+        try {
+            int id = Integer.parseInt(idStr);
+
+            if (id <= 0)
+                throw new IllegalArgumentException("ID 0-dan boyuk olmalidir.");
+
+            this.id = id;
+
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Yalniz reqem daxil edin!");
+        }
     }
 
     public String getName() {

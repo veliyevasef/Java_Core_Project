@@ -28,14 +28,14 @@ public class StudentManagementApp {
                 switch (choice) {
 
                     case 1:
-                        int id = 0;
+                        String id ;
                         while (true) {
                             System.out.print("Ferdi nomresi (ID): ");
-                            id = sc.nextInt();
+                            id = sc.nextLine();
                             sc.nextLine();
 
                             try {
-                                if (service.findById(id) != null) {
+                                if (service.findById(Integer.parseInt(id)) != null) {
                                     System.out.println("Bu ID artiq movcuddur. Bashqa ID daxil edin.");
                                     continue;
                                 }
